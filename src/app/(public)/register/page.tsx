@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { register } from "@/lib/auth";
+import { registerApi } from "@/lib/apiAuth";
 import { useRouter } from "next/navigation";
 
 export default function RegisterPage() {
@@ -14,7 +14,7 @@ export default function RegisterPage() {
     const handleRegister = async () => {
         try {
             setLoading(true);
-            await register(name, email, password);
+            await registerApi(name, email, password);
             router.push("/login");
         } catch (err) {
             alert("Registration failed");

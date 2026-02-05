@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { login } from "@/lib/auth";
 import { useRouter } from "next/navigation";
+import { loginService } from "@/services/authService";
 
 export default function LoginPage() {
     const [email, setEmail] = useState("");
@@ -13,8 +13,7 @@ export default function LoginPage() {
     const handleLogin = async () => {
         try {
             setLoading(true);
-            const res = await login(email, password);
-            localStorage.setItem("token", res.token);
+            const res = await loginService(email, password); // ✅ pakai service
             router.push("/dashboard");
         } catch (err) {
             alert("Invalid email or password");

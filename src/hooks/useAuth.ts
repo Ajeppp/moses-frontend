@@ -1,23 +1,31 @@
-"use client";
-import { useState, useEffect } from "react";
-import { getMe } from "@/lib/auth";
+'use client'
 
-export const useAuth = () => {
-  const [user, setUser] = useState<any>(null);
-  const [loading, setLoading] = useState(true);
+import { useEffect, useState } from "react"
+import { getUser, getToken } from "@/lib/auth"
+
+export function useAuth() {
+  const [user, setUser] = useState<any>(null)
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (!token) {
-      setLoading(false);
-      return;
+    const token = getToken()
+    const storedUser = getUser()
+
+    if (token && storedUser) {
+      setUser(storedUser)
+    } else {
+      setUser(null)
     }
 
-    getMe()
-      .then((data) => setUser(data))
-      .catch(() => localStorage.removeItem("token"))
-      .finally(() => setLoading(false));
-  }, []);
+    // 🔥 ini penting buat hindari race condition
+    setTimeout(() => {
+      setLoading(false)
+    }, 50)
+  }, [])
 
-  return { user, setUser, loading };
-};
+  return {
+    user,
+    isAuth: !!user,
+    loading
+  }
+}

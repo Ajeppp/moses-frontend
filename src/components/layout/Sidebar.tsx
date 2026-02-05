@@ -75,7 +75,6 @@ export default function AppleBottomBar() {
                         </div>
                     )}
                 </div>
-
             </nav>
         </aside>
     )
