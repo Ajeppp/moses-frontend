@@ -4,10 +4,16 @@ import { useEffect, useState } from "react"
 import { getPlayers } from "@/services/playerService"
 import { Player } from "@/types/player"
 import { Card } from "@/components/ui/Card"
+import AuthGuard from "@/components/layout/AuthGuard"
 
 export default function DashboardPage() {
     const [players, setPlayers] = useState<Player[]>([])
     const [loading, setLoading] = useState<boolean>(true)
+    const date = new Date().toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+    })
 
 
     useEffect(() => {
@@ -28,33 +34,36 @@ export default function DashboardPage() {
         return <div>Loading players...</div>
     }
     return (
-        <div className="p-6 space-y-6">
-            <h1 className="text-2xl font-bold">Moses Dashboard</h1>
+        <AuthGuard>
+            <div className="p-6 space-y-6">
+                <h1 className="text-2xl font-bold">🕊 Moses Dashboard</h1>
+                <h2>{date}</h2>
 
-            {loading ? (
-                <div>Loading...</div>
-            ) : (
-                <div className="grid grid-cols-4 gap-4">
-                    <Card>
-                        <h3>Total Players</h3>
-                        <p className="text-2xl font-bold">{players.length}</p>
-                    </Card>
-                    <div className="card">
-                        <h3>Services</h3>
-                        <p className="text-2xl font-bold">Auto</p>
-                    </div>
+                {loading ? (
+                    <div>Loading...</div>
+                ) : (
+                    <div className="grid grid-cols-4 gap-4">
+                        <Card>
+                            <h3>Total Players</h3>
+                            <p className="text-2xl font-bold">{players.length}</p>
+                        </Card>
+                        <div className="card">
+                            <h3>Services</h3>
+                            <p className="text-2xl font-bold">Auto</p>
+                        </div>
 
-                    <div className="card">
-                        <h3>Roles</h3>
-                        <p className="text-2xl font-bold">6</p>
-                    </div>
+                        <div className="card">
+                            <h3>Roles</h3>
+                            <p className="text-2xl font-bold">6</p>
+                        </div>
 
-                    <div className="card">
-                        <h3>Status</h3>
-                        <p className="text-2xl font-bold text-green-500">Active</p>
+                        <div className="card">
+                            <h3>Status</h3>
+                            <p className="text-2xl font-bold text-green-500">Active</p>
+                        </div>
                     </div>
-                </div>
-            )}
-        </div>
+                )}
+            </div>
+        </AuthGuard>
     )
 }
