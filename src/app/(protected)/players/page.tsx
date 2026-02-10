@@ -74,7 +74,7 @@ export default function PlayersPage() {
                     <p className="text-slate-400 text-sm">Ministry team management</p>
                 </div>
 
-                <button onClick={() => setOpenAdd(true)} className="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold">
+                <button onClick={() => setOpenAdd(true)} className="px-4 py-2 rounded-xl bg-linear-to-br from-white/20 to-white/5 border border-white/20 hover:bg-white/30 text-white text-sm font-semibold">
                     + Add Player
                 </button>
             </div>
@@ -86,14 +86,14 @@ export default function PlayersPage() {
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
                     placeholder="Search name..."
-                    className="px-4 py-2 rounded-xl bg-slate-900 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                    className="px-4 py-2 rounded-xl bg-linear-to-br from-white/20 to-white/5 border border-white/20 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 />
 
                 {/* Main Role Filter */}
                 <select
                     value={mainRole}
                     onChange={(e) => setMainRole(e.target.value)}
-                    className="px-4 py-2 rounded-xl bg-slate-900 border border-slate-700 text-white focus:outline-none"
+                    className="px-4 py-2 rounded-xl  bg-linear-to-br from-white/20 to-white/5 border border-white/20 text-white focus:outline-none"
                 >
                     <option value="">All Main Roles</option>
                     {ROLE_OPTIONS.map((r) => (
@@ -105,7 +105,7 @@ export default function PlayersPage() {
                 <select
                     value={additionalRole}
                     onChange={(e) => setAdditionalRole(e.target.value)}
-                    className="px-4 py-2 rounded-xl bg-slate-900 border border-slate-700 text-white focus:outline-none"
+                    className="px-4 py-2 rounded-xl  bg-linear-to-br from-white/20 to-white/5 border border-white/20 text-white focus:outline-none "
                 >
                     <option value="">All Additional Roles</option>
                     {ROLE_OPTIONS.map((r) => (
@@ -120,7 +120,7 @@ export default function PlayersPage() {
                         setMainRole('')
                         setAdditionalRole('')
                     }}
-                    className="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-sm"
+                    className="px-4 py-2 rounded-xl  bg-linear-to-br from-white/20 to-white/5 border border-white/20 text-slate-300 text-sm hover:bg-white/5"
                 >
                     Reset
                 </button>
@@ -131,7 +131,7 @@ export default function PlayersPage() {
                 {filteredPlayers.map((p) => (
                     <div
                         key={p.id}
-                        className="group flex items-center justify-between p-4 rounded-2xl bg-slate-900/70 backdrop-blur border border-slate-800 hover:border-slate-600 hover:shadow-xl transition-all"
+                        className="group flex items-center justify-between p-4 rounded-2xl backdrop-blur-xl bg-linear-to-br from-white/20 to-white/5 border border-white/20 hover:border-slate-600 hover:bg-white/10 hover:shadow-xl transition-all"
                     >
                         {/* Left */}
                         <div className="flex items-center gap-4">
