@@ -98,9 +98,9 @@ export default function DashboardPage() {
                     <Card>
                         <h3 className="font-semibold mb-2">Quick Actions</h3>
                         <div className="flex flex-wrap gap-3">
-                            <button className="px-4 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-sm transition">Add Player</button>
-                            <button className="px-4 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-sm transition">Generate Schedule</button>
-                            <button className="px-4 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-sm transition">Manage Roles</button>
+                            <button className="px-4 py-2 rounded-lg bg-linear-to-br from-white/20 to-white/5 border border-white/20 hover:bg-white/30 text-sm transition">Add Player</button>
+                            <button className="px-4 py-2 rounded-lg bg-linear-to-br from-white/20 to-white/5 border border-white/20 hover:bg-white/30 text-sm transition">Generate Schedule</button>
+                            <button className="px-4 py-2 rounded-lg bg-linear-to-br from-white/20 to-white/5 border border-white/20 hover:bg-white/30 text-sm transition">Manage Roles</button>
                         </div>
                     </Card>
                 </div>

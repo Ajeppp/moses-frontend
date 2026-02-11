@@ -24,7 +24,7 @@ export default function LoginPage() {
 
     return (
         <div className="min-h-screen flex items-center justify-center bg-linear-to-tr from-[#003B44] from-20% to-transparent">
-            <div className="w-full max-w-md bg-slate-900/80 backdrop-blur-xl p-8 rounded-2xl shadow-2xl border border-slate-700">
+            <div className="w-full max-w-md bg-linear-to-br from-white/20 to-white/5 border border-white/20 backdrop-blur-xl p-8 rounded-2xl shadow-2xl">
 
                 <h1 className="text-2xl font-bold text-white mb-2 text-center">
                     Moses Platform
@@ -39,12 +39,12 @@ export default function LoginPage() {
                         <input
                             type="email"
                             placeholder="you@example.com"
-                            className="w-full mt-1 px-4 py-3 rounded-xl bg-slate-800 text-white border border-slate-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                            className="w-full mt-1 px-4 py-3 rounded-xl bg-slate-800 text-white border border-slate-700 focus:outline-none focus:ring-2 focus:ring-indigo-500   "
                             onChange={(e) => setEmail(e.target.value)}
                         />
                     </div>
 
-                    <div>
+                    <div className="pb-5">
                         <label className="text-sm text-slate-400">Password</label>
                         <input
                             type="password"
@@ -57,7 +57,7 @@ export default function LoginPage() {
                     <button
                         onClick={handleLogin}
                         disabled={loading}
-                        className="w-full py-3 rounded-xl bg-indigo-600 hover:bg-indigo-700 transition text-white font-semibold"
+                        className="w-full py-3 rounded-xl bg-linear-to-br from-white/20 to-white/5 border border-white/20 hover:bg-white/10 transition text-white font-semibold"
                     >
                         {loading ? "Signing in..." : "Sign In"}
                     </button>

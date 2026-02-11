@@ -66,7 +66,7 @@ export default function PlayersPage() {
     }
 
     return (
-        <div className="p-8 max-w-7xl mx-auto pb-24">
+        <div className="p-8 max-w-7xl mx-auto pb-34">
             {/* Header */}
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
                 <div>
@@ -145,7 +145,7 @@ export default function PlayersPage() {
                                 <p className="text-white font-semibold">{p.name}</p>
                                 <div className="flex flex-wrap items-center gap-2 mt-1">
                                     {/* Main role */}
-                                    <span className="px-2 py-0.5 rounded-lg text-xs bg-indigo-500/20 text-indigo-400 border border-indigo-500/30">
+                                    <span className="px-2 py-0.5 rounded-lg text-xs bg-blue-600 text-white border border-indigo-500/30">
                                         {p.roles.main}
                                     </span>
 
